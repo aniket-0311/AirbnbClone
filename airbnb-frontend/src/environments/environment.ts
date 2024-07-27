@@ -1,3 +1,3 @@
 export const environment = {
-  API_URL: "//localhost:8080/api",
+  API_URL: "//https://airbnbclonebackend-72hm.onrender.com/api",
 };
