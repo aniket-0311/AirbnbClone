@@ -1,0 +1,22 @@
+#services:
+#  postgres:
+#    image: 'postgres:latest'
+#    volumes:
+#      - ~/volumes/codecake/postgresql/:/var/lib/postgresql/data
+#    environment:
+#      - 'POSTGRES_DB=airbnb_db_n111'
+#      - 'POSTGRES_PASSWORD=WSL7LL8HYwFuNALLUq8OKW98GiC0AazS'
+#      - 'POSTGRES_USER=airbnb_db_n111_user'
+#    ports:
+#      - 5434:5432
+
+#
+#  pgadmin:
+#    image: 'dpage/pgadmin4:latest'
+#    environment:
+#      - 'PGADMIN_DEFAULT_EMAIL=admin@admin.com'
+#      - 'PGADMIN_DEFAULT_PASSWORD=admin'
+#    ports:
+#      - '5050:80'  # Map container port 80 to host port 5050
+#    depends_on:
+#      - postgres
