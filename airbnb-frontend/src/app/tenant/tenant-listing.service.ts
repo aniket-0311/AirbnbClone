@@ -32,7 +32,6 @@ export class TenantListingService {
   getAllByCategory(pageRequest: Pagination, category: CategoryName) : void {
     let params = createPaginationOption(pageRequest);
     params = params.set("category", category);
-    console.log(environment.API_URL)
     this.http.get<Page<CardListing>>(`${environment.API_URL}/tenant-listing/get-all-by-category`, {params})
       .subscribe({
         next: displayListingCards =>
