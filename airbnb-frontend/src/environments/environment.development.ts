@@ -1,4 +1,5 @@
 export const environment = {
-  API_URL: "//airbnbclone-production-6a05.up.railway.app/api"
-  // API_URL:"//localhost:4200/api"
+  API_URL: "//airbnbclone-irz1.onrender.com/api",
+  // "//airbnbclone-irz1.onrender.com/api"
+  // API_URL:"//localhost:8080/api"
 };
