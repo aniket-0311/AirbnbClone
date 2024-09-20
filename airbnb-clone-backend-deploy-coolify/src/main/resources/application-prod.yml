@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:postgresql://pg-e0750ec-aniketd936-f7fb.c.aivencloud.com:10899/airbnbDB
     username: avnadmin
-    password: AVNS__yg7ovR3qanblZh9dc2
+    password: ${POSTGRES_PASSWORD}
   jpa:
     properties:
       hibernate:
