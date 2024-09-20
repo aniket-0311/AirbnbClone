@@ -10,10 +10,10 @@ RUN mvn clean package -DskipTests
   # Use a smaller OpenJDK 21 image for the runtime stage
 FROM openjdk:21-jdk-slim
   
-  # Copy the JAR file from the build stage to the runtime stage
-COPY --from=build /target/airbnb-clone-back-0.0.2 airbnb.jar
-  
-  # Expose the application port
+# Copy the JAR file from the build stage to the runtime stage
+COPY --from=build /target/airbnb-clone-back-0.0.1-SNAPSHOT.jar airbnb.jar
+
+# Expose the application port
 EXPOSE 8080
   
   # Define the command to run the application
