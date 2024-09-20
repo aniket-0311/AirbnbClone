@@ -10,7 +10,7 @@
     </parent>
     <groupId>fr.codecake</groupId>
     <artifactId>airbnb-clone-back</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>airbnb-clone-back</name>
     <description>Airbnb Clone API</description>
     <properties>
