@@ -1,8 +1,9 @@
 HELP.md
-# target/
+target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!target/airbnb-clone-back-0.0.2
 
 ### STS ###
 .apt_generated
