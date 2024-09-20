@@ -1,0 +1,31 @@
+logging:
+  level:
+    ROOT: info
+    org.hibernate.SQL: INFO
+    fr.codecake.airbnbcloneback: INFO
+
+spring:
+  datasource:
+    url: jdbc:postgresql://pg-e0750ec-aniketd936-f7fb.c.aivencloud.com:10899/airbnbDB
+    username: avnadmin
+    password: AVNS__yg7ovR3qanblZh9dc2
+  jpa:
+    properties:
+      hibernate:
+        default_schema: airbnb_clone
+  liquibase:
+    contexts: prod
+    default-schema: airbnb_clone
+
+server:
+  tomcat:
+    remoteip:
+      protocol-header: x-forwarded-proto
+      remote-ip-header: x-forwarded-for
+
+application:
+  cors:
+    allowed-origins: "http://localhost:4200,https://airbnbclonefrontend.onrender.com"
+  auth0:
+    role-landlord-id: rol_NSWt67cVBuQnnx97
+
