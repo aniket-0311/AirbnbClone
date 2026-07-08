@@ -1,20 +1,20 @@
-# Use Maven image with OpenJDK 21 for the build stage
-FROM jelastic/maven:3.9.5-openjdk-21 AS build
+# ---------- Build Stage ----------
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 
-# Copy all files from the current directory to the container's working directory
-COPY . .
+WORKDIR /app
 
-# Package the application (skip tests for the build stage)
+COPY pom.xml .
+COPY src ./src
+
 RUN mvn clean package -DskipTests
 
-# Use a smaller OpenJDK 21 image for the runtime stage
-FROM openjdk:21-jdk-slim
+# ---------- Runtime Stage ----------
+FROM eclipse-temurin:21-jre
 
-# Copy the JAR file from the build stage to the runtime stage
-COPY --from=build /target/airbnb-clone-back-0.0.1-SNAPSHOT.jar airbnb.jar
+WORKDIR /app
 
-# Expose the application port
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
 
-# Define the command to run the application
-ENTRYPOINT ["java", "-jar", "airbnb.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
