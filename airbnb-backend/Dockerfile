@@ -1,20 +1,18 @@
 # ---------- Build Stage ----------
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 
-WORKDIR /app
-
-COPY pom.xml .
-COPY src ./src
+# Copy all files from the current directory to the container's working directory
+COPY . .
 
 RUN mvn clean package -DskipTests
 
 # ---------- Runtime Stage ----------
 FROM eclipse-temurin:21-jre
 
-WORKDIR /app
-
-COPY --from=build /app/target/*.jar app.jar
+# Copy the JAR file from the build stage to the runtime stage
+COPY --from=build /target/airbnb-clone-back-0.0.1-SNAPSHOT.jar airbnb.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Define the command to run the application
+ENTRYPOINT ["java", "-jar", "airbnb.jar"]
